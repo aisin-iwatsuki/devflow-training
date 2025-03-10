@@ -2,9 +2,10 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ 'feature/**']
   pull_request:
-    branches: [ main ]
+    types: [closed]
+    branches: [ 'feature/**']
 
 env:
   REGISTRY: ghcr.io
@@ -31,6 +32,7 @@ jobs:
         run: npm test
 
   docker-build-push:
+    if: github.event.pull_request.merged == true
     needs: build-and-test
     runs-on: ubuntu-latest
     permissions:
