@@ -2,10 +2,10 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ 'feature/**']
+    branches: [ 'feature/**' ]
   pull_request:
-    types: [closed]
-    branches: [ 'feature/**']
+    types: [ closed ]
+    branches: [ 'main' ]
 
 env:
   REGISTRY: ghcr.io
