@@ -1,13 +1,14 @@
 class MessageHandler {
   validateMessage(data) {
-    if (!data.username || !data.message) {  // usernameがない場合の条件分岐の追加
+    if (!data.username || !data.message) {
       return false;
     }
-    return data.username.trim().length > 0 && data.message.trim().length > 0;  // usernameのtrim処理の追加
+    return data.username.trim().length > 0 && data.message.trim().length > 0;
   }
 
   formatMessage(data) {
     return {
+      username: data.username.trim(),  // 追加された項目
       message: data.message.trim(),
       timestamp: new Date().toISOString()
     };
